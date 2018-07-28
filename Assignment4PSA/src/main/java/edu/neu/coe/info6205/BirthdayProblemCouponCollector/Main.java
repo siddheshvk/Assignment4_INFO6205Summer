@@ -20,7 +20,7 @@ public class Main {
         int nodeCount=0;
         
      /***** Number of hashes/throws before the first collision in encountered ********/
-        System.out.println("First Collision data : ");
+        System.out.println("All slots full data : ");
         for(coupon_count=10000;coupon_count<110000;coupon_count+=10000) {
         nodeCount=0;
         for(int k=0;k<10;k++)
@@ -44,18 +44,18 @@ public class Main {
             HashTableSepChain.chainCount = 0;
         }
 
-        System.out.println(count);
+        System.out.println("Slot count : " + count);
 
         System.out.println("Number of hashes after when all slots are filled(Actual): "+ nodeCount/10);
 
-        double firstCollision = count * Math.log(count);
+        double zeroBins = count * Math.log(count);
 
-        System.out.println("Expected hashes before all the slots are filled: "+ firstCollision);
+        System.out.println("Expected hashes before all the slots are filled: "+ zeroBins);
         System.out.println();
         }
         
         /***** Number of hashes/throws before all bins/slots are filled ********/
-        System.out.println("Zero bins data : ");
+        System.out.println("FIrst collisions data : ");
         for(int slots=10000;slots<110000;slots+=10000) {
             count = (double) slots;
             int[] arr = new int[slots+1];
@@ -81,10 +81,10 @@ public class Main {
            }
             System.out.println();
             System.out.println("slot count: "+slots);
-            System.out.println("Number of hashes/throws when no empty bins : "+hashCountSum/20 );
+            System.out.println("Number of hashes/throws before the first collision encounters (Actual): "+hashCountSum/20 );
             
-            double zeroBins= Math.sqrt(3.14*slots/2);
-            System.out.println("Expected number of hashes/throws when no empty bins: "+ zeroBins);
+            double firstColl= Math.sqrt(3.14*slots/2);
+            System.out.println("Expected number of hashes/throws before the first collision encounters "+ firstColl);
         }
         
     }
