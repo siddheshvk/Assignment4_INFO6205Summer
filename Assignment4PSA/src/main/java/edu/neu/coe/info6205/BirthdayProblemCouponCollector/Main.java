@@ -20,6 +20,7 @@ public class Main {
         int nodeCount=0;
         
      /***** Number of hashes/throws before the first collision in encountered ********/
+        System.out.println("First Collision data : ");
         for(coupon_count=10000;coupon_count<110000;coupon_count+=10000) {
         nodeCount=0;
         for(int k=0;k<10;k++)
@@ -45,7 +46,7 @@ public class Main {
 
         System.out.println(count);
 
-        System.out.println("number of hashes/throws after when all bins/slots are filled: "+ nodeCount/10);
+        System.out.println("Number of hashes after when all slots are filled(Actual): "+ nodeCount/10);
 
         double firstCollision = count * Math.log(count);
 
@@ -54,7 +55,7 @@ public class Main {
         }
         
         /***** Number of hashes/throws before all bins/slots are filled ********/
-        
+        System.out.println("Zero bins data : ");
         for(int slots=10000;slots<110000;slots+=10000) {
             count = (double) slots;
             int[] arr = new int[slots+1];
@@ -80,10 +81,10 @@ public class Main {
            }
             System.out.println();
             System.out.println("slot count: "+slots);
-            System.out.println("number of hashes when the fist collision: "+hashCountSum/20 );
+            System.out.println("Number of hashes/throws when no empty bins : "+hashCountSum/20 );
             
             double zeroBins= Math.sqrt(3.14*slots/2);
-            System.out.println("expected number of hashes before the fist collision: "+ zeroBins);
+            System.out.println("Expected number of hashes/throws when no empty bins: "+ zeroBins);
         }
         
     }
